@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        * {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        h1 {
+            color: blueviolet;
+            text-align: center;
+            font-size: 3rem;
+            background-color: #fff;
+
+        }
+
+        #root{
+            overflow-x: hidden;
+            overflow-y: hidden;
+            
+        }
+
+
+        #product-listing {
+            list-style: none;
+            padding: 10px;
+            height: 40vh;
+            width: 750px;
+            max-width: 1000vw;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            display: flex;
+        }
+
+        .product {
+            margin: 10px 0px;
+            border: 1px solid #ccc;
+            padding: 5px;
+            border-radius: 5px;
+            width: 250px;
+            flex-basis: 250px;
+            display: inline-block;
+        }
+
+        .title {
+            font-size: 1.2rem;
+        }
+
+
+        .price {
+            font-size: 1.5rem;
+        }
+
+        .desc {
+            font-size: .9rem;
+            color: gray;
+            margin: 10px 0px;
+        }
+
+        .image img {
+            width: 100%;
+        }
+
+        .column-view {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .rating img {
+            width: 15px;
+        }
+
+        .next-btn {
+            text-align: right;
+            padding: 0px 10px 20px 0px;
+        }
+    </style>
+</head>
+<body> 
+    <h1 id="h1">Day 3</h1>
+    <div id="root"></div>
+    <script type="template" id="product-tmpl">
+        <div id="product-listing">
+            {{#p}}
+            <div class="product" id="product-{{id}}">
+                <div class="image"><img src="{{image}}" /></div>
+                <div class="title">{{title}}</div>
+                <div class="desc">{{description}}</div>
+                <div class="column-view">
+                    <div class="rating"><img src="https://www.seekpng.com/png/detail/153-1536248_star-icon-star-shape-blue-png-transparent.png"/> {{rating.rate}}</div>
+                    <div class="price">${{price}}</div>
+                </div>
+            </div>
+            {{/p}}
+        </div>
+        <div class="next-btn">
+            <button id="next">Next</button>
+        </div>
+    </script>
+    <script src="https://unpkg.com/mustache@latest"></script>
+    <script src="./dom.js"></script>
+</body>
+</html>
